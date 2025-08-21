@@ -6,6 +6,7 @@ import com.google.protobuf.Empty;
 import com.vinsguru.models.sec06.*;
 import com.vinsguru.sec06.repository.AccountRepository;
 import com.vinsguru.sec06.requesthandlers.DepositReqeustHandler;
+import com.vinsguru.sec06.requesthandlers.TransferReqeustHandler;
 import io.grpc.stub.StreamObserver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -69,5 +70,10 @@ public class BankService extends BankServiceGrpc.BankServiceImplBase {
     @Override
     public StreamObserver<DepositRequest> deposit(StreamObserver<AccountBalance> responseObserver) {
         return new DepositReqeustHandler(responseObserver);
+    }
+
+    @Override
+    public StreamObserver<TransferRequest> transfer(StreamObserver<TransferResponse> responseObserver) {
+        return new TransferReqeustHandler(responseObserver);
     }
 }
