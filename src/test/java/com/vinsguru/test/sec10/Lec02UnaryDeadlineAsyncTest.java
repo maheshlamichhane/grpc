@@ -45,7 +45,6 @@ public class Lec02UnaryDeadlineAsyncTest extends AbstractChannelTest {
         Assertions.assertTrue(observer.getItems().isEmpty());
         Assertions.assertEquals(Status.Code.DEADLINE_EXCEEDED,((StatusRuntimeException) observer.getThrowable()).getStatus().getCode());
 
-
     }
 
     @AfterAll
